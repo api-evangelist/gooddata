@@ -1,0 +1,103 @@
+{
+    "name": "GoodData",
+    "description": "GoodData goes beyond traditional business intelligence and analytics delivering insights at the moment of action to drive better business outcomes.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/601-gooddata.jpg",
+    "tags": [
+        "analysis",
+        "api provider",
+        "business intelligence",
+        "data",
+        "have api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/gooddata\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "GoodData",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/601-gooddata.jpg",
+            "humanURL": "http:\/\/gooddata.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/gooddata-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Base",
+            "url": "http:\/\/developer.gooddata.com\/api\/"
+        },
+        {
+            "type": "Blog",
+            "url": "https:\/\/developer.gooddata.com\/blog"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "https:\/\/developer.gooddata.com\/rss"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/good-data"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/developer.gooddata.com\/"
+        },
+        {
+            "type": "Email",
+            "url": "privacy@gooddata.com"
+        },
+        {
+            "type": "Email",
+            "url": "privacy@goodata.com"
+        },
+        {
+            "type": "Email",
+            "url": "roman@gooddata.com"
+        },
+        {
+            "type": "Email",
+            "url": "zdenek.svoboda@gooddata.com"
+        },
+        {
+            "type": "Email",
+            "url": "radovan@gooddata.com"
+        },
+        {
+            "type": "Email",
+            "url": "ryan.snyder@gooddata.com"
+        },
+        {
+            "type": "Email",
+            "url": "garry.olah@gooddata.com"
+        },
+        {
+            "type": "Email",
+            "url": "emily@gooddata.com"
+        },
+        {
+            "type": "Email",
+            "url": "support@gooddata.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/gooddata"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/gooddata"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/gooddata.com"
+        }
+    ]
+}

@@ -1,0 +1,361 @@
+{
+  "info": {
+    "name": "GoodData Cloud API",
+    "description": "REST API for GoodData Cloud (Entity, Declarative, and Action APIs) covering workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authenticate with a Bearer API token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://{{domain}}.gooddata.com",
+      "type": "string"
+    },
+    {
+      "key": "domain",
+      "value": "your-organization",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Workspaces",
+      "item": [
+        {
+          "name": "List all workspaces in the organization.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/workspaces",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "workspaces"]
+            }
+          }
+        },
+        {
+          "name": "Create a new workspace.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"workspace\",\n    \"attributes\": {\n      \"name\": \"<string>\"\n    }\n  }\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/workspaces",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "workspaces"]
+            }
+          }
+        },
+        {
+          "name": "Get a single workspace by id.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/workspaces/:workspaceId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "workspaces", ":workspaceId"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Data Sources",
+      "item": [
+        {
+          "name": "List all data sources.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/dataSources",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "dataSources"]
+            }
+          }
+        },
+        {
+          "name": "Register a new data source.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"dataSource\",\n    \"attributes\": {\n      \"name\": \"<string>\",\n      \"type\": \"POSTGRESQL\",\n      \"url\": \"<string>\",\n      \"schema\": \"<string>\"\n    }\n  }\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/dataSources",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "dataSources"]
+            }
+          }
+        },
+        {
+          "name": "Test a data source connection.",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/actions/dataSources/:dataSourceId/test",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "actions", "dataSources", ":dataSourceId", "test"],
+              "variable": [
+                { "key": "dataSourceId", "value": "", "description": "The id of the data source." }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Logical Data Model",
+      "item": [
+        {
+          "name": "Get the declarative logical data model of a workspace.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/layout/workspaces/:workspaceId/logicalModel",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "layout", "workspaces", ":workspaceId", "logicalModel"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Set the declarative logical data model of a workspace.",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/layout/workspaces/:workspaceId/logicalModel",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "layout", "workspaces", ":workspaceId", "logicalModel"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Metrics",
+      "item": [
+        {
+          "name": "List all metrics in a workspace.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/workspaces/:workspaceId/metrics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "workspaces", ":workspaceId", "metrics"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create a MAQL metric in a workspace.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"type\": \"metric\",\n    \"attributes\": {\n      \"title\": \"<string>\",\n      \"content\": {\n        \"maql\": \"SELECT SUM({fact/order_amount})\",\n        \"format\": \"#,##0\"\n      }\n    }\n  }\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/workspaces/:workspaceId/metrics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "workspaces", ":workspaceId", "metrics"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Visualizations & Dashboards",
+      "item": [
+        {
+          "name": "List all visualization objects (insights) in a workspace.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/workspaces/:workspaceId/visualizationObjects",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "workspaces", ":workspaceId", "visualizationObjects"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List all analytical dashboards in a workspace.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/workspaces/:workspaceId/analyticalDashboards",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "workspaces", ":workspaceId", "analyticalDashboards"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Execution / AFM",
+      "item": [
+        {
+          "name": "Execute an AFM computation.",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"execution\": {\n    \"afm\": {\n      \"measures\": [],\n      \"attributes\": [],\n      \"filters\": []\n    },\n    \"resultSpec\": {}\n  }\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/actions/workspaces/:workspaceId/execution/afm/execute",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "actions", "workspaces", ":workspaceId", "execution", "afm", "execute"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Retrieve the computed data for an AFM execution result.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/actions/workspaces/:workspaceId/execution/afm/execute/result/:resultId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "actions", "workspaces", ":workspaceId", "execution", "afm", "execute", "result", ":resultId"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." },
+                { "key": "resultId", "value": "", "description": "The id of the execution result." }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users & Permissions",
+      "item": [
+        {
+          "name": "List all users in the organization.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "users"]
+            }
+          }
+        },
+        {
+          "name": "List all user groups in the organization.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/entities/userGroups",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "entities", "userGroups"]
+            }
+          }
+        },
+        {
+          "name": "Get the declarative permissions assigned for a workspace.",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/layout/workspaces/:workspaceId/permissions",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "layout", "workspaces", ":workspaceId", "permissions"],
+              "variable": [
+                { "key": "workspaceId", "value": "", "description": "The id of the workspace." }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+aid: gooddata
+name: GoodData
+review:
+  question: Does GoodData Cloud expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    Per API Evangelist scope, HTTP Server-Sent Events (SSE) is in-scope for
+    AsyncAPI modeling. GoodData Cloud's public API does not document an SSE
+    streaming surface either; AFM execution is a request/response REST flow
+    (execute -> resultId -> retrieve result). No AsyncAPI document was created
+    because no streaming/event surface is documented.
+findings:
+  summary: |
+    GoodData Cloud does not publish a documented public WebSocket API. The
+    platform exposes only REST (HTTPS) endpoints under an organization host at
+    /api/v1, divided into the Entity API (/api/v1/entities), the Declarative /
+    Layout API (/api/v1/layout), and the Action API (/api/v1/actions).
+    Authentication uses a Bearer API token. Analytical computation is performed
+    via the AFM Action API as a two-step request/response flow (execute returns
+    a resultId, then a result endpoint returns paged data) - not a streaming or
+    bidirectional transport. No realtime WebSocket (ws:// or wss://) endpoint is
+    documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://{domain}.gooddata.com/api/v1
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in GoodData Cloud's API reference as of the review date.
+  endpointsConfirmedRest:
+    - GET    /api/v1/entities/workspaces
+    - POST   /api/v1/entities/workspaces
+    - GET    /api/v1/entities/workspaces/{workspaceId}
+    - PUT    /api/v1/entities/workspaces/{workspaceId}
+    - DELETE /api/v1/entities/workspaces/{workspaceId}
+    - GET    /api/v1/entities/dataSources
+    - POST   /api/v1/entities/dataSources
+    - POST   /api/v1/actions/dataSources/{dataSourceId}/test
+    - GET    /api/v1/layout/workspaces/{workspaceId}/logicalModel
+    - PUT    /api/v1/layout/workspaces/{workspaceId}/logicalModel
+    - GET    /api/v1/entities/workspaces/{workspaceId}/metrics
+    - POST   /api/v1/entities/workspaces/{workspaceId}/metrics
+    - GET    /api/v1/entities/workspaces/{workspaceId}/visualizationObjects
+    - POST   /api/v1/entities/workspaces/{workspaceId}/visualizationObjects
+    - GET    /api/v1/entities/workspaces/{workspaceId}/analyticalDashboards
+    - POST   /api/v1/actions/workspaces/{workspaceId}/execution/afm/execute
+    - GET    /api/v1/actions/workspaces/{workspaceId}/execution/afm/execute/result/{resultId}
+    - GET    /api/v1/entities/users
+    - GET    /api/v1/entities/userGroups
+sources:
+  - url: https://www.gooddata.ai/docs/cloud/api-and-sdk/api/
+    type: Documentation
+    note: Describes the Entity, Declarative, and Action APIs under /api/v1; all HTTPS REST.
+  - url: https://www.gooddata.ai/docs/cloud/api-and-sdk/api/conventions/
+    type: Documentation
+    note: API protocol is HTTPS; paging via size and page query parameters. No WebSocket.
+  - url: https://www.gooddata.ai/docs/cloud/api-and-sdk/api/authentication/
+    type: Documentation
+    note: Bearer token authentication via the Authorization header.
+  - url: https://www.gooddata.ai/docs/cloud/api-and-sdk/api/access_raw_data_through_api/
+    type: Documentation
+    note: AFM execution is a two-step request/response REST flow; no streaming WebSocket.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or SSE protocol surface is documented for GoodData Cloud. The
+    catalog models the documented REST surface (Entity, Declarative, and Action
+    APIs) via OpenAPI; no AsyncAPI document was authored.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,117 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: GoodData
+providerId: gooddata
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Analytics
+- Business Intelligence
+- Embedded Analytics
+- Dashboards
+- Data
+- Plans
+description: >-
+  GoodData Cloud is packaged into a Free tier for development plus paid
+  Professional (Growth) and Enterprise tiers. Professional uses per-workspace
+  pricing (a platform fee plus a per-workspace charge) with unlimited users and
+  data, multi-tenancy, embedding, and limited AI Lake features. Enterprise adds
+  custom agents, full AI governance, multiple environments with CI/CD, advanced
+  compliance, and 24/7 SLAs under custom, use-case-based pricing. AI queries are
+  subject to a Fair Usage Policy. The same REST API (Entity, Declarative, Action)
+  is available across paid tiers; list prices for paid tiers are not published.
+notes: >-
+  GoodData does not publish list prices for paid tiers; contact GoodData sales
+  for a quote. Tier features and AI query limits change over time; verify
+  against the GoodData pricing page during reconciliation. The gooddata.com
+  domain redirects to gooddata.ai.
+sources:
+- https://www.gooddata.com/pricing/
+- https://www.gooddata.ai/pricing/
+- https://www.gooddata.com/docs/cloud/
+plans:
+- id: gooddata-free
+  name: Free
+  type: free
+  description: >-
+    Entry-level tier with limited capacity intended for development and small
+    teams, including REST API access.
+  entries:
+  - label: Free Tier
+    name: free
+    type: flat
+    metric: workspaces
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  elements:
+  - name: Dashboards & Analytics
+  - name: REST API Access
+  - name: Embedding
+- id: gooddata-professional
+  name: Professional (Growth)
+  type: subscription
+  description: >-
+    Per-workspace pricing (platform fee plus per-workspace charge) for small
+    and medium companies, with unlimited users and data, multi-tenancy,
+    embedding, one environment, standard support, and limited AI Lake features.
+  entries:
+  - label: Platform Fee
+    name: platform_fee
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  - label: Per Workspace
+    name: per_workspace
+    type: usage
+    metric: workspaces
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales (per workspace)
+    userMultiplied: false
+  elements:
+  - name: Full Analytics & BI
+  - name: Embedding
+  - name: Multi-Tenancy
+  - name: Limited AI Lake (cache + FlexQuery storage)
+  - name: Standard Support
+- id: gooddata-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom, use-case-based pricing for large companies. Adds custom agents and
+    Agent Builder, full context management and AI governance, three environments
+    with CI/CD, advanced compliance (HIPAA, FedRAMP on demand), full AI Lake
+    capabilities, and 24/7 prioritized SLAs.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Agents & Agent Builder
+  - name: Full AI Governance
+  - name: Multiple Environments + CI/CD
+  - name: Advanced Compliance (HIPAA, FedRAMP)
+  - name: 24/7 SLA (99.5% uptime)
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

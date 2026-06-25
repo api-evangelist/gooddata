@@ -1,0 +1,67 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: GoodData
+providerId: gooddata
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Analytics
+- Business Intelligence
+- Embedded Analytics
+- Dashboards
+- Data
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  GoodData Cloud APIs are accessed against an organization host with a Bearer
+  API token. Collection endpoints are paged via the size (default 20) and page
+  (zero-based) query parameters. AFM execution applies error caching, blocking
+  identical failing requests for roughly 30 seconds to 3 minutes. AI queries are
+  governed by a Fair Usage Policy (a default of up to 30 AI queries per user per
+  day, configurable, with optional additional query buckets). Specific numeric
+  request-per-minute or per-second API rate-limit values are not publicly
+  documented and are not reconciled in this artifact.
+notes: >-
+  Verify concrete API throttling limits, organization IP allowlist policies, and
+  AI Fair Usage limits in GoodData Cloud documentation and the organization
+  console on reconciliation; values vary by plan and configuration.
+sources:
+- https://www.gooddata.ai/docs/cloud/api-and-sdk/api/conventions/
+- https://www.gooddata.ai/docs/cloud/api-and-sdk/api/authentication/
+- https://www.gooddata.ai/docs/cloud/api-and-sdk/api/access_raw_data_through_api/
+- https://www.gooddata.ai/pricing/
+responseCodes:
+  throttled: 429
+  forbidden: 403
+limits:
+- name: Collection Page Size
+  scope: request
+  metric: objects
+  limit: 20 default
+  notes: Controlled by the size query parameter; page is zero-based.
+- name: AFM Execution Error Caching
+  scope: workspace
+  metric: requests
+  limit: blocked 30s-3min on identical failing requests
+  notes: Only applies to identical request bodies; modified requests are processed.
+- name: AI Query Fair Usage
+  scope: user
+  metric: ai_queries
+  limit: 30 per day default
+  notes: Configurable; additional query buckets can be purchased.
+- name: API Request Throttling
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Numeric API rate-limit values are not publicly documented.
+policies:
+- name: IP Allowlist
+  description: Organizations can enforce IP allowlist policies; requests from unauthorized IPs return 403 Forbidden.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

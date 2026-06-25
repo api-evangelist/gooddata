@@ -1,0 +1,373 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GoodData Cloud API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all workspaces in the organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/workspaces"
+          },
+          "docs": "List all workspaces in the organization."
+        },
+        {
+          "info": {
+            "name": "Create a new workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/workspaces",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new workspace."
+        },
+        {
+          "info": {
+            "name": "Get a single workspace by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "Get a single workspace by id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Data Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all data sources.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/dataSources"
+          },
+          "docs": "List all data sources."
+        },
+        {
+          "info": {
+            "name": "Register a new data source.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/dataSources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a new data source."
+        },
+        {
+          "info": {
+            "name": "Test a data source connection.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{domain}}.gooddata.com/api/v1/actions/dataSources/:dataSourceId/test",
+            "params": [
+              {
+                "name": "dataSourceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the data source."
+              }
+            ]
+          },
+          "docs": "Test a data source connection."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Logical Data Model",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the declarative logical data model of a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/layout/workspaces/:workspaceId/logicalModel",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "Get the declarative logical data model of a workspace."
+        },
+        {
+          "info": {
+            "name": "Set the declarative logical data model of a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{{domain}}.gooddata.com/api/v1/layout/workspaces/:workspaceId/logicalModel",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the declarative logical data model of a workspace."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all metrics in a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/workspaces/:workspaceId/metrics",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "List all metrics in a workspace."
+        },
+        {
+          "info": {
+            "name": "Create a MAQL metric in a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/workspaces/:workspaceId/metrics",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a MAQL metric in a workspace."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Visualizations & Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all visualization objects (insights) in a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/workspaces/:workspaceId/visualizationObjects",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "List all visualization objects (insights) in a workspace."
+        },
+        {
+          "info": {
+            "name": "List all analytical dashboards in a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/workspaces/:workspaceId/analyticalDashboards",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "List all analytical dashboards in a workspace."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Execution / AFM",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute an AFM computation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{{domain}}.gooddata.com/api/v1/actions/workspaces/:workspaceId/execution/afm/execute",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute an AFM (Analytical Foundation Model) computation; returns a resultId."
+        },
+        {
+          "info": {
+            "name": "Retrieve the computed data for an AFM execution result.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/actions/workspaces/:workspaceId/execution/afm/execute/result/:resultId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              },
+              {
+                "name": "resultId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the execution result."
+              }
+            ]
+          },
+          "docs": "Retrieve the computed data for an AFM execution result."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users & Permissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all users in the organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/users"
+          },
+          "docs": "List all users in the organization."
+        },
+        {
+          "info": {
+            "name": "List all user groups in the organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/entities/userGroups"
+          },
+          "docs": "List all user groups in the organization."
+        },
+        {
+          "info": {
+            "name": "Get the declarative permissions assigned for a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{{domain}}.gooddata.com/api/v1/layout/workspaces/:workspaceId/permissions",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "Get the declarative permissions assigned for a workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

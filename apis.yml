@@ -1,0 +1,157 @@
+aid: gooddata
+url: https://raw.githubusercontent.com/api-evangelist/gooddata/refs/heads/main/apis.yml
+name: GoodData
+kind: company
+description: GoodData is an analytics and business intelligence platform for building
+  and embedding interactive dashboards, metrics, and self-service analytics. GoodData
+  Cloud exposes a full REST API (Entity, Declarative, and Action APIs) for managing
+  workspaces, data sources, the logical data model, metrics, visualizations, dashboards,
+  AFM executions, users, and permissions, authenticated with a Bearer API token.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Analytics
+- Business Intelligence
+- Embedded Analytics
+- Dashboards
+- Data
+created: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: gooddata:gooddata-workspaces-api
+  name: GoodData Workspaces API
+  tags:
+  - Workspaces
+  - Tenants
+  - Entities
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gooddata.com/docs/cloud/create-workspaces/entity-interface/
+  baseURL: https://{domain}.gooddata.com/api/v1
+  properties:
+  - url: https://www.gooddata.com/docs/cloud/create-workspaces/entity-interface/
+    type: Documentation
+  - url: https://www.gooddata.com/docs/cloud/api-and-sdk/api/api_reference_all/
+    type: APIReference
+  - url: openapi/gooddata-openapi.yml
+    type: OpenAPI
+  description: Create, read, update, and delete workspaces and workspace settings
+    through the Entity API, supporting hierarchical and multi-tenant workspace
+    structures at /api/v1/entities/workspaces.
+- aid: gooddata:gooddata-data-sources-api
+  name: GoodData Data Sources API
+  tags:
+  - Data Sources
+  - Connections
+  - Databases
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gooddata.com/docs/cloud/connect-data/manage-data-sources/
+  baseURL: https://{domain}.gooddata.com/api/v1
+  properties:
+  - url: https://www.gooddata.com/docs/cloud/connect-data/manage-data-sources/
+    type: Documentation
+  - url: openapi/gooddata-openapi.yml
+    type: OpenAPI
+  description: Register and manage connections to data warehouses and databases via
+    /api/v1/entities/dataSources, with connection testing through the Action API at
+    /api/v1/actions/dataSources/{dataSourceId}/test.
+- aid: gooddata:gooddata-logical-data-model-api
+  name: GoodData Logical Data Model API
+  tags:
+  - LDM
+  - Logical Data Model
+  - Declarative
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gooddata.com/docs/cloud/create-workspaces/declarative-interface/
+  baseURL: https://{domain}.gooddata.com/api/v1
+  properties:
+  - url: https://www.gooddata.com/docs/cloud/create-workspaces/declarative-interface/
+    type: Documentation
+  - url: openapi/gooddata-openapi.yml
+    type: OpenAPI
+  description: Retrieve and set the workspace logical data model (datasets, attributes,
+    facts, references) as an all-in-one declarative document at
+    /api/v1/layout/workspaces/{workspaceId}/logicalModel.
+- aid: gooddata:gooddata-metrics-api
+  name: GoodData Metrics API
+  tags:
+  - Metrics
+  - MAQL
+  - Measures
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gooddata.com/docs/cloud/create-metrics/create-metrics-using-api/
+  baseURL: https://{domain}.gooddata.com/api/v1
+  properties:
+  - url: https://www.gooddata.com/docs/cloud/create-metrics/create-metrics-using-api/
+    type: Documentation
+  - url: openapi/gooddata-openapi.yml
+    type: OpenAPI
+  description: Define and manage reusable MAQL metrics within a workspace through the
+    Entity API at /api/v1/entities/workspaces/{workspaceId}/metrics.
+- aid: gooddata:gooddata-visualizations-dashboards-api
+  name: GoodData Visualizations & Dashboards API
+  tags:
+  - Visualizations
+  - Dashboards
+  - Insights
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gooddata.com/docs/cloud/create-dashboards/
+  baseURL: https://{domain}.gooddata.com/api/v1
+  properties:
+  - url: https://www.gooddata.com/docs/cloud/create-dashboards/
+    type: Documentation
+  - url: openapi/gooddata-openapi.yml
+    type: OpenAPI
+  description: Manage visualization objects (insights) and analytical dashboards via
+    /api/v1/entities/workspaces/{workspaceId}/visualizationObjects and
+    /analyticalDashboards.
+- aid: gooddata:gooddata-execution-afm-api
+  name: GoodData Execution / AFM API
+  tags:
+  - Execution
+  - AFM
+  - Reporting
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gooddata.ai/docs/cloud/api-and-sdk/api/access_raw_data_through_api/
+  baseURL: https://{domain}.gooddata.com/api/v1
+  properties:
+  - url: https://www.gooddata.ai/docs/cloud/api-and-sdk/api/access_raw_data_through_api/
+    type: Documentation
+  - url: openapi/gooddata-openapi.yml
+    type: OpenAPI
+  description: Run analytical computations using the AFM (Analytical Foundation Model)
+    via POST /api/v1/actions/workspaces/{workspaceId}/execution/afm/execute and
+    retrieve paged results from the corresponding result endpoint.
+- aid: gooddata:gooddata-users-permissions-api
+  name: GoodData Users & Permissions API
+  tags:
+  - Users
+  - Permissions
+  - Access Control
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.gooddata.com/docs/cloud/manage-organization/organization-api/
+  baseURL: https://{domain}.gooddata.com/api/v1
+  properties:
+  - url: https://www.gooddata.com/docs/cloud/manage-organization/organization-api/
+    type: Documentation
+  - url: openapi/gooddata-openapi.yml
+    type: OpenAPI
+  description: Manage users, user groups, and workspace permissions via
+    /api/v1/entities/users, /api/v1/entities/userGroups, and workspace
+    permission endpoints under the organization.
+common:
+- type: GitHubOrganization
+  url: https://github.com/gooddata
+- type: LinkedIn
+  url: https://www.linkedin.com/company/gooddata
+- type: Website
+  url: https://www.gooddata.com
+- type: Documentation
+  url: https://www.gooddata.com/docs/cloud/
+- type: Plans
+  url: plans/gooddata-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/gooddata-rate-limits.yml
+- type: FinOps
+  url: finops/gooddata-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

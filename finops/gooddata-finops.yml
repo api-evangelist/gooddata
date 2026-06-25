@@ -1,0 +1,97 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: GoodData
+providerId: gooddata
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Analytics
+- Business Intelligence
+- Embedded Analytics
+- Dashboards
+- Data
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of GoodData Cloud spend. GoodData prices its Professional tier on a
+  per-workspace basis (a platform fee plus a per-workspace charge) with unlimited
+  users and data, and its Enterprise tier on custom, use-case-based agreements.
+  Cost drivers therefore center on the number of workspaces (tenants),
+  environments, AI tier and AI query consumption (Fair Usage Policy), and
+  compliance/SLA requirements rather than per-API-call metering.
+notes: >-
+  GoodData does not publish list prices for paid tiers; cost dimensions below are
+  derived from published packaging. Verify current rates and AI query buckets
+  with GoodData sales during reconciliation.
+sources:
+- https://www.gooddata.com/pricing/
+- https://www.gooddata.ai/pricing/
+- https://www.gooddata.com/docs/cloud/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: GoodData
+serviceCategory: Analytics
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: GoodData Cloud
+  ServiceCategory: Analytics
+  ProviderName: GoodData
+  PublisherName: GoodData
+  InvoiceIssuerName: GoodData
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Subscription
+meters:
+- name: platform_fee
+  description: Recurring platform fee for the Professional tier.
+  unit: subscription
+  aggregation: flat
+  dimensions:
+  - account
+  - plan
+- name: workspaces
+  description: Number of workspaces (tenants) provisioned, the primary per-workspace cost driver.
+  unit: workspaces
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: environments
+  description: Number of environments (1 on Professional, 3 on Enterprise) with CI/CD data product management.
+  unit: environments
+  aggregation: sum
+  dimensions:
+  - account
+- name: ai_queries
+  description: AI queries consumed under the Fair Usage Policy, with optional additional query buckets.
+  unit: queries
+  aggregation: sum
+  dimensions:
+  - account
+  - user
+principles:
+- name: Visibility
+  description: Track active workspace count, environment count, and AI query consumption against contracted limits.
+- name: Allocation
+  description: Map workspaces (tenants) and environments to internal teams, customers, or cost centers.
+- name: Optimization
+  description: Decommission idle workspaces; right-size AI tier and query buckets to actual usage; consolidate environments where possible.
+- name: Accountability
+  description: Assign owners per workspace/tenant; review per-workspace and AI spend against the negotiated agreement.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

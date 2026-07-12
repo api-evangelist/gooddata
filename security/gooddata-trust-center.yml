@@ -1,0 +1,19 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://www.gooddata.ai/security/
+url: https://www.gooddata.ai/security/
+certifications:
+- SOC 2
+- ISO 27001
+- HIPAA
+- FedRAMP
+- GDPR
+evidence:
+- source: https://www.gooddata.ai/security/
+  keywords:
+  - soc 2
+  - iso 27001
+  - hipaa
+  - fedramp
+  - gdpr

@@ -138,6 +138,14 @@ apis:
     /api/v1/entities/users, /api/v1/entities/userGroups, and workspace
     permission endpoints under the organization.
 common:
+- type: TrustCenter
+  url: security/gooddata-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/gooddata-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/gooddata-domain-security.yml
+- type: Authentication
+  url: authentication/gooddata-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/gooddata
 - type: LinkedIn
@@ -152,6 +160,8 @@ common:
   url: rate-limits/gooddata-rate-limits.yml
 - type: FinOps
   url: finops/gooddata-finops.yml
+- url: https://www.gooddata.ai/feed.xml
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

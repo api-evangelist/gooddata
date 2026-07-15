@@ -138,6 +138,8 @@ apis:
     /api/v1/entities/users, /api/v1/entities/userGroups, and workspace
     permission endpoints under the organization.
 common:
+- type: AgenticAccess
+  url: agentic-access/gooddata-agentic-access.yml
 - type: TrustCenter
   url: security/gooddata-trust-center.yml
 - type: VulnerabilityDisclosure

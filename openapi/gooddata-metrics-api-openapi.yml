@@ -1,0 +1,129 @@
+openapi: 3.0.1
+info:
+  title: GoodData Cloud Dashboards Metrics API
+  description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
+  termsOfService: https://www.gooddata.com/legal/
+  contact:
+    name: GoodData Support
+    url: https://support.gooddata.com
+  version: '1.0'
+servers:
+- url: https://{domain}.gooddata.com
+  description: GoodData Cloud organization host
+  variables:
+    domain:
+      default: your-organization
+      description: Your GoodData Cloud organization subdomain.
+security:
+- bearerAuth: []
+tags:
+- name: Metrics
+paths:
+  /api/v1/entities/workspaces/{workspaceId}/metrics:
+    parameters:
+    - $ref: '#/components/parameters/WorkspaceId'
+    get:
+      operationId: getMetrics
+      tags:
+      - Metrics
+      summary: List all metrics in a workspace.
+      parameters:
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: A collection of metrics.
+    post:
+      operationId: createMetric
+      tags:
+      - Metrics
+      summary: Create a MAQL metric in a workspace.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Metric'
+      responses:
+        '201':
+          description: The created metric.
+  /api/v1/entities/workspaces/{workspaceId}/metrics/{objectId}:
+    parameters:
+    - $ref: '#/components/parameters/WorkspaceId'
+    - $ref: '#/components/parameters/ObjectId'
+    get:
+      operationId: getMetric
+      tags:
+      - Metrics
+      summary: Get a single metric by id.
+      responses:
+        '200':
+          description: The requested metric.
+    delete:
+      operationId: deleteMetric
+      tags:
+      - Metrics
+      summary: Delete a metric.
+      responses:
+        '204':
+          description: Metric deleted.
+components:
+  parameters:
+    Size:
+      name: size
+      in: query
+      description: The number of objects to return. The default is 20.
+      schema:
+        type: integer
+        default: 20
+    WorkspaceId:
+      name: workspaceId
+      in: path
+      required: true
+      description: The id of the workspace.
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      description: The zero-based pagination index of the collection set to return.
+      schema:
+        type: integer
+        default: 0
+    ObjectId:
+      name: objectId
+      in: path
+      required: true
+      description: The id of the entity object.
+      schema:
+        type: string
+  schemas:
+    Metric:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+              example: metric
+            attributes:
+              type: object
+              properties:
+                title:
+                  type: string
+                content:
+                  type: object
+                  properties:
+                    maql:
+                      type: string
+                      example: SELECT SUM({fact/order_amount})
+                    format:
+                      type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'GoodData Cloud API token passed as ''Authorization: Bearer <API_TOKEN>''.'

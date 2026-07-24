@@ -1,0 +1,77 @@
+openapi: 3.0.1
+info:
+  title: GoodData Cloud Dashboards API
+  description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
+  termsOfService: https://www.gooddata.com/legal/
+  contact:
+    name: GoodData Support
+    url: https://support.gooddata.com
+  version: '1.0'
+servers:
+- url: https://{domain}.gooddata.com
+  description: GoodData Cloud organization host
+  variables:
+    domain:
+      default: your-organization
+      description: Your GoodData Cloud organization subdomain.
+security:
+- bearerAuth: []
+tags:
+- name: Dashboards
+paths:
+  /api/v1/entities/workspaces/{workspaceId}/analyticalDashboards:
+    parameters:
+    - $ref: '#/components/parameters/WorkspaceId'
+    get:
+      operationId: getAnalyticalDashboards
+      tags:
+      - Dashboards
+      summary: List all analytical dashboards in a workspace.
+      parameters:
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: A collection of analytical dashboards.
+    post:
+      operationId: createAnalyticalDashboard
+      tags:
+      - Dashboards
+      summary: Create an analytical dashboard.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: The created analytical dashboard.
+components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      description: The zero-based pagination index of the collection set to return.
+      schema:
+        type: integer
+        default: 0
+    Size:
+      name: size
+      in: query
+      description: The number of objects to return. The default is 20.
+      schema:
+        type: integer
+        default: 20
+    WorkspaceId:
+      name: workspaceId
+      in: path
+      required: true
+      description: The id of the workspace.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'GoodData Cloud API token passed as ''Authorization: Bearer <API_TOKEN>''.'

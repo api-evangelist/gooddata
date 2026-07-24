@@ -1,0 +1,104 @@
+openapi: 3.0.1
+info:
+  title: GoodData Cloud Dashboards Execution API
+  description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
+  termsOfService: https://www.gooddata.com/legal/
+  contact:
+    name: GoodData Support
+    url: https://support.gooddata.com
+  version: '1.0'
+servers:
+- url: https://{domain}.gooddata.com
+  description: GoodData Cloud organization host
+  variables:
+    domain:
+      default: your-organization
+      description: Your GoodData Cloud organization subdomain.
+security:
+- bearerAuth: []
+tags:
+- name: Execution
+paths:
+  /api/v1/actions/workspaces/{workspaceId}/execution/afm/execute:
+    parameters:
+    - $ref: '#/components/parameters/WorkspaceId'
+    post:
+      operationId: computeReport
+      tags:
+      - Execution
+      summary: Execute an AFM (Analytical Foundation Model) computation.
+      description: Accepts an AFM execution definition and returns a result link (resultId) that can be retrieved from the execution result endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AfmExecution'
+      responses:
+        '200':
+          description: An execution response containing a resultId.
+  /api/v1/actions/workspaces/{workspaceId}/execution/afm/execute/result/{resultId}:
+    parameters:
+    - $ref: '#/components/parameters/WorkspaceId'
+    - name: resultId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: retrieveResult
+      tags:
+      - Execution
+      summary: Retrieve the computed data for an AFM execution result.
+      parameters:
+      - name: offset
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The computed execution result data.
+components:
+  parameters:
+    WorkspaceId:
+      name: workspaceId
+      in: path
+      required: true
+      description: The id of the workspace.
+      schema:
+        type: string
+  schemas:
+    AfmExecution:
+      type: object
+      properties:
+        execution:
+          type: object
+          properties:
+            afm:
+              type: object
+              properties:
+                measures:
+                  type: array
+                  items:
+                    type: object
+                attributes:
+                  type: array
+                  items:
+                    type: object
+                filters:
+                  type: array
+                  items:
+                    type: object
+            resultSpec:
+              type: object
+        settings:
+          type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'GoodData Cloud API token passed as ''Authorization: Bearer <API_TOKEN>''.'

@@ -1,0 +1,129 @@
+openapi: 3.0.1
+info:
+  title: GoodData Cloud Dashboards Data Sources API
+  description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
+  termsOfService: https://www.gooddata.com/legal/
+  contact:
+    name: GoodData Support
+    url: https://support.gooddata.com
+  version: '1.0'
+servers:
+- url: https://{domain}.gooddata.com
+  description: GoodData Cloud organization host
+  variables:
+    domain:
+      default: your-organization
+      description: Your GoodData Cloud organization subdomain.
+security:
+- bearerAuth: []
+tags:
+- name: Data Sources
+paths:
+  /api/v1/entities/dataSources:
+    get:
+      operationId: getDataSources
+      tags:
+      - Data Sources
+      summary: List all data sources.
+      parameters:
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: A collection of data sources.
+    post:
+      operationId: createDataSource
+      tags:
+      - Data Sources
+      summary: Register a new data source.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataSource'
+      responses:
+        '201':
+          description: The created data source.
+  /api/v1/entities/dataSources/{dataSourceId}:
+    parameters:
+    - $ref: '#/components/parameters/DataSourceId'
+    get:
+      operationId: getDataSource
+      tags:
+      - Data Sources
+      summary: Get a single data source by id.
+      responses:
+        '200':
+          description: The requested data source.
+    delete:
+      operationId: deleteDataSource
+      tags:
+      - Data Sources
+      summary: Delete a data source.
+      responses:
+        '204':
+          description: Data source deleted.
+  /api/v1/actions/dataSources/{dataSourceId}/test:
+    parameters:
+    - $ref: '#/components/parameters/DataSourceId'
+    post:
+      operationId: testDataSource
+      tags:
+      - Data Sources
+      summary: Test a data source connection.
+      responses:
+        '200':
+          description: Connection test result.
+components:
+  schemas:
+    DataSource:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+              example: dataSource
+            attributes:
+              type: object
+              properties:
+                name:
+                  type: string
+                type:
+                  type: string
+                  example: POSTGRESQL
+                url:
+                  type: string
+                schema:
+                  type: string
+  parameters:
+    Size:
+      name: size
+      in: query
+      description: The number of objects to return. The default is 20.
+      schema:
+        type: integer
+        default: 20
+    Page:
+      name: page
+      in: query
+      description: The zero-based pagination index of the collection set to return.
+      schema:
+        type: integer
+        default: 0
+    DataSourceId:
+      name: dataSourceId
+      in: path
+      required: true
+      description: The id of the data source.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'GoodData Cloud API token passed as ''Authorization: Bearer <API_TOKEN>''.'

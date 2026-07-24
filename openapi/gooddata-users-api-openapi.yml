@@ -1,0 +1,117 @@
+openapi: 3.0.1
+info:
+  title: GoodData Cloud Dashboards Users API
+  description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
+  termsOfService: https://www.gooddata.com/legal/
+  contact:
+    name: GoodData Support
+    url: https://support.gooddata.com
+  version: '1.0'
+servers:
+- url: https://{domain}.gooddata.com
+  description: GoodData Cloud organization host
+  variables:
+    domain:
+      default: your-organization
+      description: Your GoodData Cloud organization subdomain.
+security:
+- bearerAuth: []
+tags:
+- name: Users
+paths:
+  /api/v1/entities/users:
+    get:
+      operationId: getUsers
+      tags:
+      - Users
+      summary: List all users in the organization.
+      parameters:
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: A collection of users.
+    post:
+      operationId: createUser
+      tags:
+      - Users
+      summary: Create a user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: The created user.
+  /api/v1/entities/users/{userId}:
+    parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getUser
+      tags:
+      - Users
+      summary: Get a single user by id.
+      responses:
+        '200':
+          description: The requested user.
+    delete:
+      operationId: deleteUser
+      tags:
+      - Users
+      summary: Delete a user.
+      responses:
+        '204':
+          description: User deleted.
+  /api/v1/entities/userGroups:
+    get:
+      operationId: getUserGroups
+      tags:
+      - Users
+      summary: List all user groups in the organization.
+      parameters:
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: A collection of user groups.
+    post:
+      operationId: createUserGroup
+      tags:
+      - Users
+      summary: Create a user group.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: The created user group.
+components:
+  parameters:
+    Page:
+      name: page
+      in: query
+      description: The zero-based pagination index of the collection set to return.
+      schema:
+        type: integer
+        default: 0
+    Size:
+      name: size
+      in: query
+      description: The number of objects to return. The default is 20.
+      schema:
+        type: integer
+        default: 20
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'GoodData Cloud API token passed as ''Authorization: Bearer <API_TOKEN>''.'

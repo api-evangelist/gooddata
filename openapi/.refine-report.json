@@ -1,0 +1,30 @@
+{
+  "provider": "gooddata",
+  "sources": [
+    "gooddata-dashboards-api-openapi.yml",
+    "gooddata-data-sources-api-openapi.yml",
+    "gooddata-execution-api-openapi.yml",
+    "gooddata-logical-data-model-api-openapi.yml",
+    "gooddata-metrics-api-openapi.yml",
+    "gooddata-permissions-api-openapi.yml",
+    "gooddata-users-api-openapi.yml",
+    "gooddata-visualizations-api-openapi.yml",
+    "gooddata-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "gooddata-dashboards-api-openapi.yml",
+    "gooddata-data-sources-api-openapi.yml",
+    "gooddata-execution-api-openapi.yml",
+    "gooddata-logical-data-model-api-openapi.yml",
+    "gooddata-metrics-api-openapi.yml",
+    "gooddata-permissions-api-openapi.yml",
+    "gooddata-users-api-openapi.yml",
+    "gooddata-visualizations-api-openapi.yml",
+    "gooddata-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

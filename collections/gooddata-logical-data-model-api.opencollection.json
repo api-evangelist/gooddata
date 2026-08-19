@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GoodData Cloud Dashboards Logical Data Model API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Logical Data Model",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the declarative logical data model of a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{domain}.gooddata.com/api/v1/layout/workspaces/:workspaceId/logicalModel",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "Get the declarative logical data model of a workspace."
+        },
+        {
+          "info": {
+            "name": "Set the declarative logical data model of a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{domain}.gooddata.com/api/v1/layout/workspaces/:workspaceId/logicalModel",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the declarative logical data model of a workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GoodData Cloud Dashboards Permissions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Permissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the declarative permissions assigned for a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{domain}.gooddata.com/api/v1/layout/workspaces/:workspaceId/permissions",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "Get the declarative permissions assigned for a workspace."
+        },
+        {
+          "info": {
+            "name": "Set the declarative permissions for a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{domain}.gooddata.com/api/v1/layout/workspaces/:workspaceId/permissions",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the declarative permissions for a workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

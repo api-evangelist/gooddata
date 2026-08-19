@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GoodData Cloud Dashboards Workspaces API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all workspaces in the organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/workspaces",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The number of objects to return. The default is 20."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The zero-based pagination index of the collection set to return."
+              }
+            ]
+          },
+          "docs": "List all workspaces in the organization."
+        },
+        {
+          "info": {
+            "name": "Create a new workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/workspaces",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new workspace."
+        },
+        {
+          "info": {
+            "name": "Get a single workspace by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "Get a single workspace by id."
+        },
+        {
+          "info": {
+            "name": "Update a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a workspace."
+        },
+        {
+          "info": {
+            "name": "Delete a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ]
+          },
+          "docs": "Delete a workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GoodData Cloud Dashboards Data Sources API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all data sources.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/dataSources",
+            "params": [
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The number of objects to return. The default is 20."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The zero-based pagination index of the collection set to return."
+              }
+            ]
+          },
+          "docs": "List all data sources."
+        },
+        {
+          "info": {
+            "name": "Register a new data source.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/dataSources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a new data source."
+        },
+        {
+          "info": {
+            "name": "Get a single data source by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/dataSources/:dataSourceId",
+            "params": [
+              {
+                "name": "dataSourceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the data source."
+              }
+            ]
+          },
+          "docs": "Get a single data source by id."
+        },
+        {
+          "info": {
+            "name": "Delete a data source.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/dataSources/:dataSourceId",
+            "params": [
+              {
+                "name": "dataSourceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the data source."
+              }
+            ]
+          },
+          "docs": "Delete a data source."
+        },
+        {
+          "info": {
+            "name": "Test a data source connection.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{domain}.gooddata.com/api/v1/actions/dataSources/:dataSourceId/test",
+            "params": [
+              {
+                "name": "dataSourceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the data source."
+              }
+            ]
+          },
+          "docs": "Test a data source connection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

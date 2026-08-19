@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "GoodData Cloud Dashboards Metrics API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all metrics in a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/workspaces/:workspaceId/metrics",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The number of objects to return. The default is 20."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The zero-based pagination index of the collection set to return."
+              }
+            ]
+          },
+          "docs": "List all metrics in a workspace."
+        },
+        {
+          "info": {
+            "name": "Create a MAQL metric in a workspace.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/workspaces/:workspaceId/metrics",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a MAQL metric in a workspace."
+        },
+        {
+          "info": {
+            "name": "Get a single metric by id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/workspaces/:workspaceId/metrics/:objectId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              },
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the entity object."
+              }
+            ]
+          },
+          "docs": "Get a single metric by id."
+        },
+        {
+          "info": {
+            "name": "Delete a metric.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{domain}.gooddata.com/api/v1/entities/workspaces/:workspaceId/metrics/:objectId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the workspace."
+              },
+              {
+                "name": "objectId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the entity object."
+              }
+            ]
+          },
+          "docs": "Delete a metric."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

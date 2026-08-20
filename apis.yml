@@ -192,6 +192,8 @@ apis:
   humanURL: https://www.gooddata.com/docs/cloud/create-workspaces/entity-interface/
   baseURL: https://{domain}.gooddata.com/api/v1
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI

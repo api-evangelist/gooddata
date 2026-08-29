@@ -7,6 +7,18 @@ description: GoodData is an analytics and business intelligence platform for bui
   Cloud exposes a full REST API (Entity, Declarative, and Action APIs) for managing
   workspaces, data sources, the logical data model, metrics, visualizations, dashboards,
   AFM executions, users, and permissions, authenticated with a Bearer API token.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve

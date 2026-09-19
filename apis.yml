@@ -232,6 +232,8 @@ apis:
   humanURL: https://www.gooddata.com/docs/cloud/create-workspaces/entity-interface/
   baseURL: https://{domain}.gooddata.com/api/v1
   tags:
+  - Visualization
+  tags_raw:
   - Visualizations
   properties:
   - type: OpenAPI
@@ -258,6 +260,8 @@ apis:
   humanURL: https://www.gooddata.com/docs/cloud/create-workspaces/entity-interface/
   baseURL: https://{domain}.gooddata.com/api/v1
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI

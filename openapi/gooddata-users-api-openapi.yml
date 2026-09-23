@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GoodData Cloud Dashboards Users API
+  title: GoodData Cloud Users API
   description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
   termsOfService: https://www.gooddata.com/legal/
   contact:
@@ -24,7 +24,7 @@ paths:
       operationId: getUsers
       tags:
       - Users
-      summary: List all users in the organization.
+      summary: List all users in the organization
       parameters:
       - $ref: '#/components/parameters/Size'
       - $ref: '#/components/parameters/Page'
@@ -35,7 +35,7 @@ paths:
       operationId: createUser
       tags:
       - Users
-      summary: Create a user.
+      summary: Create a user
       requestBody:
         required: true
         content:
@@ -56,7 +56,7 @@ paths:
       operationId: getUser
       tags:
       - Users
-      summary: Get a single user by id.
+      summary: Get a single user by id
       responses:
         '200':
           description: The requested user.
@@ -64,7 +64,7 @@ paths:
       operationId: deleteUser
       tags:
       - Users
-      summary: Delete a user.
+      summary: Delete a user
       responses:
         '204':
           description: User deleted.
@@ -73,7 +73,7 @@ paths:
       operationId: getUserGroups
       tags:
       - Users
-      summary: List all user groups in the organization.
+      summary: List all user groups in the organization
       parameters:
       - $ref: '#/components/parameters/Size'
       - $ref: '#/components/parameters/Page'
@@ -84,7 +84,7 @@ paths:
       operationId: createUserGroup
       tags:
       - Users
-      summary: Create a user group.
+      summary: Create a user group
       requestBody:
         required: true
         content:
@@ -96,13 +96,6 @@ paths:
           description: The created user group.
 components:
   parameters:
-    Page:
-      name: page
-      in: query
-      description: The zero-based pagination index of the collection set to return.
-      schema:
-        type: integer
-        default: 0
     Size:
       name: size
       in: query
@@ -110,6 +103,13 @@ components:
       schema:
         type: integer
         default: 20
+    Page:
+      name: page
+      in: query
+      description: The zero-based pagination index of the collection set to return.
+      schema:
+        type: integer
+        default: 0
   securitySchemes:
     bearerAuth:
       type: http

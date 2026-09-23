@@ -1,15 +1,7 @@
 {
   "provider": "gooddata",
   "sources": [
-    "gooddata-dashboards-api-openapi.yml",
-    "gooddata-data-sources-api-openapi.yml",
-    "gooddata-execution-api-openapi.yml",
-    "gooddata-logical-data-model-api-openapi.yml",
-    "gooddata-metrics-api-openapi.yml",
-    "gooddata-permissions-api-openapi.yml",
-    "gooddata-users-api-openapi.yml",
-    "gooddata-visualizations-api-openapi.yml",
-    "gooddata-workspaces-api-openapi.yml"
+    "_original/gooddata-openapi.yml"
   ],
   "outputs": [
     "gooddata-dashboards-api-openapi.yml",
@@ -25,6 +17,29 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "gooddata-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "gooddata-openapi.yml: declared missing tag: Dashboards",
+    "gooddata-openapi.yml: declared missing tag: Data Sources",
+    "gooddata-openapi.yml: declared missing tag: Execution",
+    "gooddata-openapi.yml: declared missing tag: Logical Data Model",
+    "gooddata-openapi.yml: declared missing tag: Metrics",
+    "gooddata-openapi.yml: declared missing tag: Permissions",
+    "gooddata-openapi.yml: declared missing tag: Users",
+    "gooddata-openapi.yml: declared missing tag: Visualizations",
+    "gooddata-openapi.yml: declared missing tag: Workspaces",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "gooddata-dashboards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gooddata-data-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gooddata-execution-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gooddata-logical-data-model-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gooddata-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gooddata-permissions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gooddata-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gooddata-visualizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "gooddata-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

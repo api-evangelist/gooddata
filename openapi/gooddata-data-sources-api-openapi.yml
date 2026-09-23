@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GoodData Cloud Dashboards Data Sources API
+  title: GoodData Cloud Data Sources API
   description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
   termsOfService: https://www.gooddata.com/legal/
   contact:
@@ -24,7 +24,7 @@ paths:
       operationId: getDataSources
       tags:
       - Data Sources
-      summary: List all data sources.
+      summary: List all data sources
       parameters:
       - $ref: '#/components/parameters/Size'
       - $ref: '#/components/parameters/Page'
@@ -35,7 +35,7 @@ paths:
       operationId: createDataSource
       tags:
       - Data Sources
-      summary: Register a new data source.
+      summary: Register a new data source
       requestBody:
         required: true
         content:
@@ -52,7 +52,7 @@ paths:
       operationId: getDataSource
       tags:
       - Data Sources
-      summary: Get a single data source by id.
+      summary: Get a single data source by id
       responses:
         '200':
           description: The requested data source.
@@ -60,7 +60,7 @@ paths:
       operationId: deleteDataSource
       tags:
       - Data Sources
-      summary: Delete a data source.
+      summary: Delete a data source
       responses:
         '204':
           description: Data source deleted.
@@ -71,11 +71,33 @@ paths:
       operationId: testDataSource
       tags:
       - Data Sources
-      summary: Test a data source connection.
+      summary: Test a data source connection
       responses:
         '200':
           description: Connection test result.
 components:
+  parameters:
+    Size:
+      name: size
+      in: query
+      description: The number of objects to return. The default is 20.
+      schema:
+        type: integer
+        default: 20
+    DataSourceId:
+      name: dataSourceId
+      in: path
+      required: true
+      description: The id of the data source.
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      description: The zero-based pagination index of the collection set to return.
+      schema:
+        type: integer
+        default: 0
   schemas:
     DataSource:
       type: object
@@ -100,28 +122,6 @@ components:
                   type: string
                 schema:
                   type: string
-  parameters:
-    Size:
-      name: size
-      in: query
-      description: The number of objects to return. The default is 20.
-      schema:
-        type: integer
-        default: 20
-    Page:
-      name: page
-      in: query
-      description: The zero-based pagination index of the collection set to return.
-      schema:
-        type: integer
-        default: 0
-    DataSourceId:
-      name: dataSourceId
-      in: path
-      required: true
-      description: The id of the data source.
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

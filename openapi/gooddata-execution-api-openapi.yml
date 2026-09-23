@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GoodData Cloud Dashboards Execution API
+  title: GoodData Cloud Execution API
   description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
   termsOfService: https://www.gooddata.com/legal/
   contact:
@@ -26,7 +26,7 @@ paths:
       operationId: computeReport
       tags:
       - Execution
-      summary: Execute an AFM (Analytical Foundation Model) computation.
+      summary: Execute an AFM (Analytical Foundation Model) computation
       description: Accepts an AFM execution definition and returns a result link (resultId) that can be retrieved from the execution result endpoint.
       requestBody:
         required: true
@@ -49,7 +49,7 @@ paths:
       operationId: retrieveResult
       tags:
       - Execution
-      summary: Retrieve the computed data for an AFM execution result.
+      summary: Retrieve the computed data for an AFM execution result
       parameters:
       - name: offset
         in: query
@@ -63,14 +63,6 @@ paths:
         '200':
           description: The computed execution result data.
 components:
-  parameters:
-    WorkspaceId:
-      name: workspaceId
-      in: path
-      required: true
-      description: The id of the workspace.
-      schema:
-        type: string
   schemas:
     AfmExecution:
       type: object
@@ -97,6 +89,14 @@ components:
               type: object
         settings:
           type: object
+  parameters:
+    WorkspaceId:
+      name: workspaceId
+      in: path
+      required: true
+      description: The id of the workspace.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

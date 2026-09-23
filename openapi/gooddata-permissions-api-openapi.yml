@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GoodData Cloud Dashboards Permissions API
+  title: GoodData Cloud Permissions API
   description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
   termsOfService: https://www.gooddata.com/legal/
   contact:
@@ -26,7 +26,7 @@ paths:
       operationId: getWorkspacePermissions
       tags:
       - Permissions
-      summary: Get the declarative permissions assigned for a workspace.
+      summary: Get the declarative permissions assigned for a workspace
       responses:
         '200':
           description: The workspace permission assignments.
@@ -34,7 +34,7 @@ paths:
       operationId: setWorkspacePermissions
       tags:
       - Permissions
-      summary: Set the declarative permissions for a workspace.
+      summary: Set the declarative permissions for a workspace
       requestBody:
         required: true
         content:

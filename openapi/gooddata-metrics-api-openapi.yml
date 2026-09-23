@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GoodData Cloud Dashboards Metrics API
+  title: GoodData Cloud Metrics API
   description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
   termsOfService: https://www.gooddata.com/legal/
   contact:
@@ -26,7 +26,7 @@ paths:
       operationId: getMetrics
       tags:
       - Metrics
-      summary: List all metrics in a workspace.
+      summary: List all metrics in a workspace
       parameters:
       - $ref: '#/components/parameters/Size'
       - $ref: '#/components/parameters/Page'
@@ -37,7 +37,7 @@ paths:
       operationId: createMetric
       tags:
       - Metrics
-      summary: Create a MAQL metric in a workspace.
+      summary: Create a MAQL metric in a workspace
       requestBody:
         required: true
         content:
@@ -55,7 +55,7 @@ paths:
       operationId: getMetric
       tags:
       - Metrics
-      summary: Get a single metric by id.
+      summary: Get a single metric by id
       responses:
         '200':
           description: The requested metric.
@@ -63,7 +63,7 @@ paths:
       operationId: deleteMetric
       tags:
       - Metrics
-      summary: Delete a metric.
+      summary: Delete a metric
       responses:
         '204':
           description: Metric deleted.
@@ -76,6 +76,13 @@ components:
       schema:
         type: integer
         default: 20
+    ObjectId:
+      name: objectId
+      in: path
+      required: true
+      description: The id of the entity object.
+      schema:
+        type: string
     WorkspaceId:
       name: workspaceId
       in: path
@@ -90,13 +97,6 @@ components:
       schema:
         type: integer
         default: 0
-    ObjectId:
-      name: objectId
-      in: path
-      required: true
-      description: The id of the entity object.
-      schema:
-        type: string
   schemas:
     Metric:
       type: object

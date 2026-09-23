@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GoodData Cloud Dashboards Workspaces API
+  title: GoodData Cloud Workspaces API
   description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
   termsOfService: https://www.gooddata.com/legal/
   contact:
@@ -24,7 +24,7 @@ paths:
       operationId: getWorkspaces
       tags:
       - Workspaces
-      summary: List all workspaces in the organization.
+      summary: List all workspaces in the organization
       parameters:
       - $ref: '#/components/parameters/Size'
       - $ref: '#/components/parameters/Page'
@@ -35,7 +35,7 @@ paths:
       operationId: createWorkspace
       tags:
       - Workspaces
-      summary: Create a new workspace.
+      summary: Create a new workspace
       requestBody:
         required: true
         content:
@@ -52,7 +52,7 @@ paths:
       operationId: getWorkspace
       tags:
       - Workspaces
-      summary: Get a single workspace by id.
+      summary: Get a single workspace by id
       responses:
         '200':
           description: The requested workspace.
@@ -60,7 +60,7 @@ paths:
       operationId: updateWorkspace
       tags:
       - Workspaces
-      summary: Update a workspace.
+      summary: Update a workspace
       requestBody:
         required: true
         content:
@@ -74,26 +74,12 @@ paths:
       operationId: deleteWorkspace
       tags:
       - Workspaces
-      summary: Delete a workspace.
+      summary: Delete a workspace
       responses:
         '204':
           description: Workspace deleted.
 components:
   parameters:
-    Page:
-      name: page
-      in: query
-      description: The zero-based pagination index of the collection set to return.
-      schema:
-        type: integer
-        default: 0
-    Size:
-      name: size
-      in: query
-      description: The number of objects to return. The default is 20.
-      schema:
-        type: integer
-        default: 20
     WorkspaceId:
       name: workspaceId
       in: path
@@ -101,6 +87,20 @@ components:
       description: The id of the workspace.
       schema:
         type: string
+    Size:
+      name: size
+      in: query
+      description: The number of objects to return. The default is 20.
+      schema:
+        type: integer
+        default: 20
+    Page:
+      name: page
+      in: query
+      description: The zero-based pagination index of the collection set to return.
+      schema:
+        type: integer
+        default: 0
   schemas:
     Workspace:
       type: object

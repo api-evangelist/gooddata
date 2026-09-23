@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: GoodData Cloud Dashboards Logical Data Model API
+  title: GoodData Cloud Logical Data Model API
   description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
   termsOfService: https://www.gooddata.com/legal/
   contact:
@@ -26,7 +26,7 @@ paths:
       operationId: getLogicalModel
       tags:
       - Logical Data Model
-      summary: Get the declarative logical data model of a workspace.
+      summary: Get the declarative logical data model of a workspace
       responses:
         '200':
           description: The workspace logical data model.
@@ -34,7 +34,7 @@ paths:
       operationId: setLogicalModel
       tags:
       - Logical Data Model
-      summary: Set the declarative logical data model of a workspace.
+      summary: Set the declarative logical data model of a workspace
       requestBody:
         required: true
         content:

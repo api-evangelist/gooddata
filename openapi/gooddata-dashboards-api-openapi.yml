@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: GoodData Cloud Dashboards API
   description: REST API for GoodData Cloud, covering the Entity API (/api/v1/entities), the Declarative / Layout API (/api/v1/layout), and the Action API (/api/v1/actions). The API manages workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions. Authentication uses a Bearer API token in the Authorization header.
@@ -26,7 +26,7 @@ paths:
       operationId: getAnalyticalDashboards
       tags:
       - Dashboards
-      summary: List all analytical dashboards in a workspace.
+      summary: List all analytical dashboards in a workspace
       parameters:
       - $ref: '#/components/parameters/Size'
       - $ref: '#/components/parameters/Page'
@@ -37,7 +37,7 @@ paths:
       operationId: createAnalyticalDashboard
       tags:
       - Dashboards
-      summary: Create an analytical dashboard.
+      summary: Create an analytical dashboard
       requestBody:
         required: true
         content:
@@ -49,13 +49,6 @@ paths:
           description: The created analytical dashboard.
 components:
   parameters:
-    Page:
-      name: page
-      in: query
-      description: The zero-based pagination index of the collection set to return.
-      schema:
-        type: integer
-        default: 0
     Size:
       name: size
       in: query
@@ -70,6 +63,13 @@ components:
       description: The id of the workspace.
       schema:
         type: string
+    Page:
+      name: page
+      in: query
+      description: The zero-based pagination index of the collection set to return.
+      schema:
+        type: integer
+        default: 0
   securitySchemes:
     bearerAuth:
       type: http

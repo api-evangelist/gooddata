@@ -63,14 +63,6 @@ paths:
         '200':
           description: The computed execution result data.
 components:
-  parameters:
-    WorkspaceId:
-      name: workspaceId
-      in: path
-      required: true
-      description: The id of the workspace.
-      schema:
-        type: string
   schemas:
     AfmExecution:
       type: object
@@ -97,6 +89,14 @@ components:
               type: object
         settings:
           type: object
+  parameters:
+    WorkspaceId:
+      name: workspaceId
+      in: path
+      required: true
+      description: The id of the workspace.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

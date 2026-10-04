@@ -283,6 +283,9 @@ apis:
   - type: Documentation
     url: https://www.gooddata.com/docs/cloud/manage-organization/organization-api/
 common:
+- type: CapabilityMap
+  url: capabilities/gooddata-capability-edges.yml
+  name: GoodData Business Capability Map
 - type: AgenticAccess
   url: agentic-access/gooddata-agentic-access.yml
 - type: TrustCenter

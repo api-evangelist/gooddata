@@ -1,0 +1,88 @@
+slug: gooddata
+provider: GoodData
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Dashboards
+  spec_file: gooddata-dashboards-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.9
+  evidence: GET /api/v1/entities/workspaces/{workspaceId}/analyticalDashboards — 'List all analytical
+    dashboards in a workspace'; 'createAnalyticalDashboard'
+  reason: Creating and listing analytical dashboards in a BI platform is squarely reporting/BI delivery
+    under Analytics & BI Management.
+- tag: Visualizations
+  spec_file: gooddata-visualizations-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.85
+  evidence: POST /api/v1/entities/workspaces/{workspaceId}/visualizationObjects  createVisualizationObject  Create
+    a visualization object (insight)
+  reason: Creating and listing visualization objects (insights) in an analytics workspace is the delivery
+    of reporting/BI artefacts, which maps squarely to Analytics & BI Management for this BI platform.
+- tag: Execution
+  spec_file: gooddata-execution-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.8
+  evidence: POST .../execution/afm/execute  computeReport  'Execute an AFM (Analytical Foundation Model)
+    computation'
+  reason: Computing and retrieving analytical report results is the query/execution engine of a BI platform,
+    realising Analytics & BI delivery.
+- tag: Metrics
+  spec_file: gooddata-metrics-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.8
+  evidence: POST /api/v1/entities/workspaces/{workspaceId}/metrics  createMetric  'Create a MAQL metric
+    in a workspace'
+  reason: Definition and lifecycle of MAQL analytical metrics used in reports and dashboards — BI semantic-layer
+    content management under Analytics & BI Management, not enterprise KPI/performance reporting by the
+    buyer.
+- tag: Logical Data Model
+  spec_file: gooddata-logical-data-model-api-openapi.yml
+  capability_id: BC-610.40
+  capability_id_l1: BC-610
+  capability_name: Data Architecture Management
+  confidence: 0.75
+  evidence: GET /api/v1/layout/workspaces/{workspaceId}/logicalModel — 'Get the declarative logical data
+    model of a workspace'
+  reason: Managing the declarative logical data model (entities, attributes, relationships) of a workspace
+    is logical data architecture definition, matching Data Architecture Management.
+- tag: Users
+  spec_file: gooddata-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: POST /api/v1/entities/users  createUser  Create a user; GET /api/v1/entities/userGroups  getUserGroups  List
+    all user groups in the organization
+  reason: Operations create, list and delete platform user accounts and user groups within an organisation
+    — user provisioning and group membership, which is Identity & Access Management. These are not HR
+    employee records; no person-lifecycle or employment attributes appear.
+- tag: Data Sources
+  spec_file: gooddata-data-sources-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.7
+  evidence: POST /api/v1/entities/dataSources  createDataSource  'Register a new data source'; 'Test a
+    data source connection'
+  reason: Registering and testing analytic data sources is information/data management supporting the
+    BI platform. The L1 is clear; whether it is better read as data architecture or BI delivery is ambiguous,
+    so no L2 is asserted.

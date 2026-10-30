@@ -1,4 +1,4 @@
-# GoodData (gooddata)
+# GoodData
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,174 +66,134 @@
 
 GoodData is an analytics and business intelligence platform for building and embedding interactive dashboards, metrics, and self-service analytics. GoodData Cloud exposes a full REST API (Entity, Declarative, and Action APIs) for managing workspaces, data sources, the logical data model, metrics, visualizations, dashboards, AFM executions, users, and permissions, authenticated with a Bearer API token.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/gooddata/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/gooddata/refs/heads/main/apis.yml)
+**Areas:** Analytics · Business Intelligence · Embedded Analytics · Dashboards · Data
 
-## Tags
+## GoodData on APIs.io
 
-- Analytics
-- Business Intelligence
-- Embedded Analytics
-- Dashboards
-- Data
+Everything profiled for GoodData is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gooddata/](https://apis.io/providers/gooddata/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (9)
 
-- **Created:** 2026-06-21
+- [GoodData Dashboards API](https://apis.io/apis/gooddata/gooddata-dashboards-api/) — The Dashboards API from GoodData — 1 operation(s) for dashboards.
+- [GoodData Data Sources API](https://apis.io/apis/gooddata/gooddata-data-sources-api/) — The Data Sources API from GoodData — 3 operation(s) for data sources.
+- [GoodData Execution API](https://apis.io/apis/gooddata/gooddata-execution-api/) — The Execution API from GoodData — 2 operation(s) for execution.
+- [GoodData Logical Data Model API](https://apis.io/apis/gooddata/gooddata-logical-data-model-api/) — The Logical Data Model API from GoodData — 1 operation(s) for logical data model.
+- [GoodData Metrics API](https://apis.io/apis/gooddata/gooddata-metrics-api/) — The Metrics API from GoodData — 2 operation(s) for metrics.
+- [GoodData Permissions API](https://apis.io/apis/gooddata/gooddata-permissions-api/) — The Permissions API from GoodData — 1 operation(s) for permissions.
+- [GoodData Users API](https://apis.io/apis/gooddata/gooddata-users-api/) — The Users API from GoodData — 3 operation(s) for users.
+- [GoodData Visualizations API](https://apis.io/apis/gooddata/gooddata-visualizations-api/) — The Visualizations API from GoodData — 1 operation(s) for visualizations.
+- [GoodData Workspaces API](https://apis.io/apis/gooddata/gooddata-workspaces-api/) — The Workspaces API from GoodData — 2 operation(s) for workspaces.
 
-## APIs
+### Published properties
 
-### GoodData Workspaces API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Create, read, update, and delete workspaces and workspace settings through the Entity API, supporting hierarchical and multi-tenant workspace structures at /api/v1/entities/workspaces.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.gooddata.com/docs/cloud/create-workspaces/entity-interface/](https://www.gooddata.com/docs/cloud/create-workspaces/entity-interface/)
-- **Base URL:** `https://{domain}.gooddata.com/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Gooddata Agentic Access](https://apis.io/agentic-access/gooddata/gooddata-agentic-access/)
 
-- Workspaces
-- Tenants
-- Entities
+#### Collections (10)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://www.gooddata.com/docs/cloud/create-workspaces/entity-interface/)
-- [API Reference](https://www.gooddata.com/docs/cloud/api-and-sdk/api/api_reference_all/)
-- [OpenAPI](openapi/gooddata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gooddata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gooddata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [GoodData Cloud API](https://apis.io/collections/gooddata/open-gooddata/)
+- [GoodData Cloud Dashboards API](https://apis.io/collections/gooddata/open-gooddata-dashboards-api/)
+- [GoodData Cloud Dashboards Data Sources API](https://apis.io/collections/gooddata/open-gooddata-data-sources-api/)
+- [GoodData Cloud Dashboards Execution API](https://apis.io/collections/gooddata/open-gooddata-execution-api/)
+- [GoodData Cloud Dashboards Logical Data Model API](https://apis.io/collections/gooddata/open-gooddata-logical-data-model-api/)
+- [GoodData Cloud Dashboards Metrics API](https://apis.io/collections/gooddata/open-gooddata-metrics-api/)
+- [GoodData Cloud Dashboards Permissions API](https://apis.io/collections/gooddata/open-gooddata-permissions-api/)
+- [GoodData Cloud Dashboards Users API](https://apis.io/collections/gooddata/open-gooddata-users-api/)
+- [GoodData Cloud Dashboards Visualizations API](https://apis.io/collections/gooddata/open-gooddata-visualizations-api/)
+- [GoodData Cloud Dashboards Workspaces API](https://apis.io/collections/gooddata/open-gooddata-workspaces-api/)
 
-### GoodData Data Sources API
+#### Security (4)
 
-Register and manage connections to data warehouses and databases via /api/v1/entities/dataSources, with connection testing through the Action API at /api/v1/actions/dataSources/{dataSourceId}/test.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://www.gooddata.com/docs/cloud/connect-data/manage-data-sources/](https://www.gooddata.com/docs/cloud/connect-data/manage-data-sources/)
-- **Base URL:** `https://{domain}.gooddata.com/api/v1`
+- [Gooddata Authentication](https://apis.io/security/gooddata/gooddata-authentication/)
+- [Gooddata Domain Security](https://apis.io/security/gooddata/gooddata-domain-security/)
+- [Gooddata Trust Center](https://apis.io/security/gooddata/gooddata-trust-center/)
+- [Gooddata Vulnerability Disclosure](https://apis.io/security/gooddata/gooddata-vulnerability-disclosure/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Data Sources
-- Connections
-- Databases
+Published plans, tiers and prices.
 
-#### Properties
+- [Gooddata Plans Pricing](https://apis.io/plans/gooddata/gooddata-plans-pricing/)
 
-- [Documentation](https://www.gooddata.com/docs/cloud/connect-data/manage-data-sources/)
-- [OpenAPI](openapi/gooddata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gooddata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gooddata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### GoodData Logical Data Model API
+Published request limits.
 
-Retrieve and set the workspace logical data model (datasets, attributes, facts, references) as an all-in-one declarative document at /api/v1/layout/workspaces/{workspaceId}/logicalModel.
+- [Gooddata Rate Limits](https://apis.io/rate-limits/gooddata/gooddata-rate-limits/)
 
-- **Human URL:** [https://www.gooddata.com/docs/cloud/create-workspaces/declarative-interface/](https://www.gooddata.com/docs/cloud/create-workspaces/declarative-interface/)
-- **Base URL:** `https://{domain}.gooddata.com/api/v1`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- LDM
-- Logical Data Model
-- Declarative
+- [Gooddata Finops](https://apis.io/finops/gooddata/gooddata-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://www.gooddata.com/docs/cloud/create-workspaces/declarative-interface/)
-- [OpenAPI](openapi/gooddata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gooddata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gooddata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### GoodData Metrics API
-
-Define and manage reusable MAQL metrics within a workspace through the Entity API at /api/v1/entities/workspaces/{workspaceId}/metrics.
-
-- **Human URL:** [https://www.gooddata.com/docs/cloud/create-metrics/create-metrics-using-api/](https://www.gooddata.com/docs/cloud/create-metrics/create-metrics-using-api/)
-- **Base URL:** `https://{domain}.gooddata.com/api/v1`
-
-#### Tags
-
-- Metrics
-- MAQL
-- Measures
-
-#### Properties
-
-- [Documentation](https://www.gooddata.com/docs/cloud/create-metrics/create-metrics-using-api/)
-- [OpenAPI](openapi/gooddata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gooddata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gooddata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GoodData Visualizations & Dashboards API
-
-Manage visualization objects (insights) and analytical dashboards via /api/v1/entities/workspaces/{workspaceId}/visualizationObjects and /analyticalDashboards.
-
-- **Human URL:** [https://www.gooddata.com/docs/cloud/create-dashboards/](https://www.gooddata.com/docs/cloud/create-dashboards/)
-- **Base URL:** `https://{domain}.gooddata.com/api/v1`
-
-#### Tags
-
-- Visualizations
-- Dashboards
-- Insights
-
-#### Properties
-
-- [Documentation](https://www.gooddata.com/docs/cloud/create-dashboards/)
-- [OpenAPI](openapi/gooddata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gooddata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gooddata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GoodData Execution / AFM API
-
-Run analytical computations using the AFM (Analytical Foundation Model) via POST /api/v1/actions/workspaces/{workspaceId}/execution/afm/execute and retrieve paged results from the corresponding result endpoint.
-
-- **Human URL:** [https://www.gooddata.ai/docs/cloud/api-and-sdk/api/access_raw_data_through_api/](https://www.gooddata.ai/docs/cloud/api-and-sdk/api/access_raw_data_through_api/)
-- **Base URL:** `https://{domain}.gooddata.com/api/v1`
-
-#### Tags
-
-- Execution
-- AFM
-- Reporting
-
-#### Properties
-
-- [Documentation](https://www.gooddata.ai/docs/cloud/api-and-sdk/api/access_raw_data_through_api/)
-- [OpenAPI](openapi/gooddata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gooddata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gooddata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### GoodData Users & Permissions API
-
-Manage users, user groups, and workspace permissions via /api/v1/entities/users, /api/v1/entities/userGroups, and workspace permission endpoints under the organization.
-
-- **Human URL:** [https://www.gooddata.com/docs/cloud/manage-organization/organization-api/](https://www.gooddata.com/docs/cloud/manage-organization/organization-api/)
-- **Base URL:** `https://{domain}.gooddata.com/api/v1`
-
-#### Tags
-
-- Users
-- Permissions
-- Access Control
-
-#### Properties
-
-- [Documentation](https://www.gooddata.com/docs/cloud/manage-organization/organization-api/)
-- [OpenAPI](openapi/gooddata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gooddata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gooddata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/gooddata)
-- [LinkedIn](https://www.linkedin.com/company/gooddata)
 - [Website](https://www.gooddata.com)
 - [Documentation](https://www.gooddata.com/docs/cloud/)
-- [Plans](plans/gooddata-plans-pricing.yml)
-- [Rate Limits](rate-limits/gooddata-rate-limits.yml)
-- [Fin Ops](finops/gooddata-finops.yml)
+- [Blog](https://www.gooddata.ai/feed.xml)
+- [GitHub](https://github.com/gooddata)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 29.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 46.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 15.8 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gooddata/](https://apis.io/providers/gooddata/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GoodData: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gooddata/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
